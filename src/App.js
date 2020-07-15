@@ -1,16 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import PhotoOTD from './components/PhotoOTD'
-import { POTD_URL, POTD_API_KEY } from './constants/nasa_api'
+import { POTD_URL, POTD_API_KEY } from './constants/nasa_api';
+import Photo from './components/Photo';
+import Date from './components/Date';
+import Description from './components/Description';
+
 
 function App() {
-  const [img, setImg] = useState('')
+  const [imgData, setImgData] = useState('')
+
   useEffect(() => {
     axios.get(`${POTD_URL}?api_key=${POTD_API_KEY}`)
     .then(res => {
         console.log(res.data)
-        setImg(res.data.url)
+        setImgData(res.data)
     })
     .catch(err => {
         console.log(err)
@@ -20,7 +24,9 @@ function App() {
   return (
     <div className="App">
       <h1>NASA</h1>
-      <PhotoOTD img={img}/>
+      <Date date={imgData.date} />
+      <Photo img={imgData.url} alt={imgData.media_type} />
+      <Description title={imgData.title} explanation={imgData.explanation} />
     </div>
   );
 }
