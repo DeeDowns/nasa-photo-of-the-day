@@ -5,6 +5,7 @@ import { POTD_URL, POTD_API_KEY } from './constants/nasa_api';
 import Photo from './components/Photo';
 import Date from './components/Date';
 import Description from './components/Description';
+import Copyright from './components/Copyright';
 
 
 function App() {
@@ -21,12 +22,15 @@ function App() {
     })
   }, [])
 
+
+
   return (
-    <div className="App">
-      <h1>NASA</h1>
+    <div className="app-container">
+      <h1>NASA Photo of the Day</h1>
       <Date date={imgData.date} />
       <Photo img={imgData.url} alt={imgData.media_type} />
       <Description title={imgData.title} explanation={imgData.explanation} />
+      <Copyright copyright={imgData.copyright ? imgData.copyright : null} />
     </div>
   );
 }

@@ -7,8 +7,7 @@ function Photo (props) {
     const { img, alt} = props
     console.log(props)
     return ( 
-        <div>
-            <h2>Photo of the Day</h2>
+        <div className='photo-container'>
             <img src={img} alt={`${alt} of the day`} />
         </div>
     )

@@ -6,8 +6,8 @@ function Description (props) {
     const { explanation, title } = props;
     console.log(props)
     return ( 
-        <div>
-            <h4>{title}</h4>
+        <div className='description-container'>
+            <h3>{title}</h3>
             <p>{explanation}</p>
         </div>
     )

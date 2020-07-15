@@ -4,8 +4,8 @@ function Date (props) {
     const { date } = props;
     console.log(props)
     return ( 
-        <div>
-            <h3>{date}</h3> 
+        <div className='date-container'>
+            <h2>{date}</h2> 
         </div>
     )
 }
