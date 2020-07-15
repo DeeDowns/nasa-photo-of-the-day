@@ -1,13 +1,25 @@
-import React from "react";
-import "./App.css";
+import React, {useState, useEffect} from 'react';
+import './App.css';
+import axios from 'axios';
+import PhotoOTD from './components/PhotoOTD'
+import { POTD_URL, POTD_API_KEY } from './constants/nasa_api'
 
 function App() {
+
+  useEffect(() => {
+    axios.get(`${POTD_URL}?api_key=${POTD_API_KEY}`)
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  }, [])
+
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <h1>NASA</h1>
+      <PhotoOTD />
     </div>
   );
 }
