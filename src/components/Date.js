@@ -6,12 +6,14 @@ const StyledDateContainer = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
+    border-bottom: 5px solid red;
     
     h2 {
-        width: 60%;
+        width: 20%;
         font-size: 3.5rem;
         text-align: center;
+        margin-top: 0;
     }  
 
  

@@ -1,15 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios'
 import styled from 'styled-components';
-// import { POTD_URL, POTD_API_KEY} from '../constants'
+
+const StyledCrContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ 
+
+  p {
+    font-family:  'Titillium Web', sans-serif;
+    font-size: 1.8rem;
+    width: 15%;
+    border-bottom: 3px solid red;
+    text-align: center;
+
+  }
+
+`
 
 function Description (props) {
     const { copyright } = props;
     console.log(props)
     return ( 
-        <div className='copyright-container'>
-            <p>{copyright}</p>
-        </div>
+        <StyledCrContainer className='copyright-container'>
+            <p>Photo © {copyright}</p>
+        </StyledCrContainer>
     )
 }
 

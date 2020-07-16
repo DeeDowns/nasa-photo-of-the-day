@@ -5,10 +5,12 @@ const StyledPhotoContainer = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 50%;
     
     img {
         border-radius: 10px;
+        width: 65%;
+        margin: 5% 0;
     }
 
 `

@@ -9,16 +9,18 @@ const StyledDescriptionContainer = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 35%;
+    margin: 0 3%;
     
     h3 {
-        width: 60%;
+        width: 90%;
         font-size: 3rem;
         text-align: center;
+        border-bottom: 3px solid red;
     }  
 
     p {
-        width: 40%;
+        width: 90%;
         font-size: 2rem;
     }  
 `

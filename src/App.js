@@ -23,7 +23,8 @@ const keyFrame = keyframes `
 `
 const StyledApp = styled.div `
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -32,8 +33,9 @@ const StyledApp = styled.div `
   h1 {
     font-family:  'Titillium Web', sans-serif;
     font-size: 4rem;
-    /* width: 60%; */
+    width: 30%;
     border-bottom: 3px solid red;
+    text-align: center;
     transform: scale(0);
     animation: ${keyFrame} 1s ease-in-out forwards;
 
