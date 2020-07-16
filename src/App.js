@@ -10,18 +10,7 @@ import Copyright from './components/Copyright';
 import { TweenMax } from 'gsap';
 
 
-// const keyFrame = keyframes `
-//   0% {
-//     transform: scale(0);
-//     opacity: 0;
-//   }
 
-//   100% {
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-
-// `
 const StyledApp = styled.div `
   display: flex;
   flex-direction: row;
@@ -32,6 +21,7 @@ const StyledApp = styled.div `
   margin: 0 auto;
   background-color: white;
   border-radius: 5px;
+
  
  
 

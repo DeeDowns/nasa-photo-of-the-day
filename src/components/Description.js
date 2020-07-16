@@ -36,7 +36,7 @@ function Description (props) {
 
     useEffect(() => {
         TweenMax.to(
-            descriptionDiv.current, 4, { x: -30 }, { x: 30 }
+            descriptionDiv.current, 3, { x: -30 }, { x: 30 }
         ); 
     }, [])
 
