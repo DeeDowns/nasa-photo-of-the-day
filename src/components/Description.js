@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios'
+import React, {useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-// import { POTD_URL, POTD_API_KEY} from '../constants'
+import { TweenMax } from 'gsap';
 
 
 const StyledDescriptionContainer = styled.div `
@@ -9,19 +8,22 @@ const StyledDescriptionContainer = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 35%;
-    margin: 0 3%;
+    width: 40%;
+    margin-left: 6%;
     
     h3 {
         width: 90%;
         font-size: 3rem;
         text-align: center;
         border-bottom: 3px solid red;
+        font-family:  'Titillium Web', sans-serif;
     }  
 
     p {
         width: 90%;
         font-size: 2rem;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
     }  
 `
 
@@ -29,8 +31,18 @@ const StyledDescriptionContainer = styled.div `
 function Description (props) {
     const { explanation, title } = props;
     console.log(props)
+
+    const descriptionDiv = useRef(null);
+
+    useEffect(() => {
+        TweenMax.to(
+            descriptionDiv.current, 4, { x: -30 }, { x: 30 }
+        ); 
+    }, [])
+
+
     return ( 
-        <StyledDescriptionContainer className='description-container'>
+        <StyledDescriptionContainer ref={descriptionDiv} className='description-container'>
             <h3>{title}</h3>
             <p>{explanation}</p>
         </StyledDescriptionContainer>

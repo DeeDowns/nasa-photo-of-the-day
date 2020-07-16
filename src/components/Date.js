@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { TweenMax } from 'gsap';
 
 
 const StyledDateContainer = styled.div `
@@ -14,6 +15,8 @@ const StyledDateContainer = styled.div `
         font-size: 3.5rem;
         text-align: center;
         margin-top: 0;
+        font-family:  'Titillium Web', sans-serif;
+        font-weight: bold;
     }  
 
  
@@ -22,8 +25,17 @@ const StyledDateContainer = styled.div `
 function Date (props) {
     const { date } = props;
     console.log(props)
+
+    const dateDiv = useRef(null);
+
+    useEffect(() => {
+      TweenMax.to(
+        dateDiv.current, 4, { y: 18 }, { y: -18 }
+        );
+    }, [])
+
     return ( 
-        <StyledDateContainer className='date-container'>
+        <StyledDateContainer ref={dateDiv} className='date-container'>
             <h2>{date}</h2> 
         </StyledDateContainer>
     )
