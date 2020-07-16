@@ -1,16 +1,25 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
-// import axios from 'axios'
-// import { POTD_URL, POTD_API_KEY} from '../constants'
+const StyledPhotoContainer = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    
+    img {
+        border-radius: 10px;
+    }
+
+`
 
 function Photo (props) {
     const { img, alt} = props
     console.log(props)
     return ( 
-        <div className='photo-container'>
+        <StyledPhotoContainer className='photo-container'>
             <img src={img} alt={`${alt} of the day`} />
-        </div>
+        </StyledPhotoContainer>
     )
 }
 
