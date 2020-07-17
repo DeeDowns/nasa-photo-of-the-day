@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { TweenMax } from 'gsap';
+import Player from './Player'
 
 const StyledPhotoContainer = styled.div `
     display: flex;
@@ -25,14 +26,19 @@ function Photo (props) {
 
     useEffect(() => {
         TweenMax.to(
-            photoDiv.current, 4, { x: 30 }, { x: -30 }
+            photoDiv.current, 3, { x: 30 }, { x: -30 }
         ); 
     }, [])
 
 
     return ( 
         <StyledPhotoContainer ref={photoDiv} className='photo-container'>
-            <img src={img} alt={`${alt} of the day`} />
+            {
+                alt === 'image'?  
+                <img src={img} alt={`${alt} of the day`} /> :
+                <Player url={img}/>
+            }
+           
         </StyledPhotoContainer>
     )
 }

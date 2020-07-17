@@ -25,7 +25,7 @@ function Description (props) {
     console.log(props)
     return ( 
         <StyledCrContainer className='copyright-container'>
-            <p>Photo © {copyright}</p>
+            {copyright ? <p>Photo © {copyright}</p> : null}
         </StyledCrContainer>
     )
 }

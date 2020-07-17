@@ -21,6 +21,7 @@ const StyledApp = styled.div `
   margin: 0 auto;
   background-color: white;
   border-radius: 5px;
+  
 
  
  
@@ -34,13 +35,17 @@ const StyledApp = styled.div `
 
   }
 
+
 `
 
 function App() {
-  const [imgData, setImgData] = useState('')
+  const [imgData, setImgData] = useState('');
+  const [date, setDate] = useState('');
+  const apiDate = `&date=${date}`;
+  
 
   useEffect(() => {
-    axios.get(`${POTD_URL}?api_key=${POTD_API_KEY}`)
+    axios.get(`${POTD_URL}?api_key=${POTD_API_KEY}${apiDate}`)
     .then(res => {
         console.log(res.data)
         setImgData(res.data)
@@ -48,13 +53,19 @@ function App() {
     .catch(err => {
         console.log(err)
     })
-  }, [])
+  }, [date])
+
+
+  const handleDateInput = e => {
+    e.preventDefault();
+    setDate(e.target.value);
+  }
 
   const titleElement = useRef(null);
 
   useEffect(() => {
     TweenMax.to(
-      titleElement.current, 4, { y: 18 }, { y: -18 }
+      titleElement.current, 3, { y: 18 }, { y: -18 }
       );
   }, [])
 
@@ -62,7 +73,7 @@ function App() {
   return (
     <StyledApp className="app-container">
       <h1 ref={titleElement}>NASA Photo of the Day</h1>
-      <Date date={imgData.date} />
+      <Date date={imgData.date} handleDateInput={handleDateInput} />
       <Photo img={imgData.url} alt={imgData.media_type} />
       <Description title={imgData.title} explanation={imgData.explanation} />
       <Copyright copyright={imgData.copyright ? imgData.copyright : null} />
